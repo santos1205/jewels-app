@@ -33,10 +33,10 @@ const MyCard = props => {
       <CardActionArea>
         <CardMedia
           className={classes.media}          
-          image={'https://uploads.codesandbox.io/uploads/user/e8cb9cd4-720b-4761-8a65-c9f657789081/Di9y-Anel.jpg'}          
+          //image={'https://uploads.codesandbox.io/uploads/user/e8cb9cd4-720b-4761-8a65-c9f657789081/Di9y-Anel.jpg'}          
           //image={'https://uploads.codesandbox.io/uploads/user/e8cb9cd4-720b-4761-8a65-c9f657789081/M3gL-Pulseira.jpg'}          
           //image={'https://uploads.codesandbox.io/uploads/user/e8cb9cd4-720b-4761-8a65-c9f657789081/I7hs-Brinco.jpg '}          
-          //image={'https://uploads.codesandbox.io/uploads/user/e8cb9cd4-720b-4761-8a65-c9f657789081/hfpE-Colar.jpg'}          
+          image={'https://uploads.codesandbox.io/uploads/user/e8cb9cd4-720b-4761-8a65-c9f657789081/hfpE-Colar.jpg'}          
           title="jewel"
         />
         <CardContent>
