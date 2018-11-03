@@ -2,9 +2,12 @@ import axios from 'axios'
 
 const BASE_URL = 'https://bkend-jewels.herokuapp.com/api/jewels'
 
-export const actjewelSell = (id) => ({
-  type: "JEWEL_CHANGED"  
-});
+export const actjewelSell = (index) => {
+  //const request = axios.put(`${BASE_URL}/${id}`, {...kit, jewel[index]})
+  return {
+    type: "JEWEL_CHANGED "  + index
+  }  
+}
 
 export const actGetKits = () => {
   const request = axios.get(`${BASE_URL}`)  
