@@ -26,17 +26,20 @@ const styles = {
 const MyCard = props => {
   const { classes, tipo, valor, isSold } = props;
 
-  let status = isSold ? "VENDIDO" : "";  
+
+  let status = isSold ? "VENDIDO" : ""
+  let joia = ''
+  joia = tipo == 'colar' ? 'hfpE-Colar' : joia
+  joia = tipo == 'anel' ? 'Di9y-Anel' : joia
+  joia = tipo == 'brinco' ? 'I7hs-Brinco' : joia
+  joia = tipo == 'pulseira' ? 'M3gL-Pulseira' : joia
   
   return (
     <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
-          className={classes.media}          
-          //image={'https://uploads.codesandbox.io/uploads/user/e8cb9cd4-720b-4761-8a65-c9f657789081/Di9y-Anel.jpg'}          
-          //image={'https://uploads.codesandbox.io/uploads/user/e8cb9cd4-720b-4761-8a65-c9f657789081/M3gL-Pulseira.jpg'}          
-          //image={'https://uploads.codesandbox.io/uploads/user/e8cb9cd4-720b-4761-8a65-c9f657789081/I7hs-Brinco.jpg '}          
-          image={'https://uploads.codesandbox.io/uploads/user/e8cb9cd4-720b-4761-8a65-c9f657789081/hfpE-Colar.jpg'}          
+          className={classes.media}                    
+          image={`https://uploads.codesandbox.io/uploads/user/e8cb9cd4-720b-4761-8a65-c9f657789081/${joia}.jpg`}          
           title="jewel"
         />
         <CardContent>

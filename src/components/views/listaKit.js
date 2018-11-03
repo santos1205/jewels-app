@@ -49,7 +49,7 @@ class ListaKit extends React.Component {
 
 
   componentWillMount() {
-    this.props.actGetKitById('5bdc4825821ac100154e43ce')
+    this.props.actGetKitById('5bdc47fc821ac100154e43cd')
   }
 
   render() {
@@ -58,7 +58,7 @@ class ListaKit extends React.Component {
     console.log(kit)
     return (
       <React.Fragment>
-        <MyAppBar titulo="Usuário(a)" 
+        <MyAppBar titulo="Kit" 
           client={kit.client}
           partialJewels={kit.partialJewels}
           totalJewels={kit.totalJewels}
