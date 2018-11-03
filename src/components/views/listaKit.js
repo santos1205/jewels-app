@@ -54,8 +54,7 @@ class ListaKit extends React.Component {
 
   render() {
     const { classes, kit, actjewelSell } = this.props;
-    const { spacing } = this.state;
-    console.log(kit)
+    const { spacing } = this.state;    
     return (
       <React.Fragment>
         <MyAppBar titulo="Kit" 
@@ -76,7 +75,7 @@ class ListaKit extends React.Component {
                 spacing={Number(spacing)}
               >
                 {kit.jewels.map(value => (
-                  <Grid key={value._id} item onClick={actjewelSell}>
+                  <Grid key={value._id} item onClick={() => actjewelSell(value._id)}>
                     <Card
                       tipo={value.tipo}
                       valor={value.valor}

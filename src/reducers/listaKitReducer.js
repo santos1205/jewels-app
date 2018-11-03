@@ -10,17 +10,13 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "JEWEL_CHANGED":
-      console.log("JEWEL CHANGED");
+    case "JEWEL_CHANGED":      
       return state;
-    case "KITS_FECHED":
-      console.log("KITS_FECHED");
+    case "KITS_FECHED":      
       return {...state, kit: action.payload.data};
-    case "KIT_LOADED":
-      console.log("KIT_LOADED");
+    case "KITBYID_LOADED":      
       return {...state, kit: action.payload.data};
-      case "FIRST_KIT_LOADED":
-      console.log("FIRST_KIT_LOADED");
+    case "FIRST_KIT_LOADED":      
       return {...state, kit: action.payload.data.value};      
     default:
       return state;
