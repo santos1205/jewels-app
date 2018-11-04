@@ -49,7 +49,7 @@ class ListaKit extends React.Component {
 
 
   componentWillMount() {
-    this.props.actGetKitById('5bdc47fc821ac100154e43cd')
+    this.props.actGetFirstKit()
   }
 
   render() {
