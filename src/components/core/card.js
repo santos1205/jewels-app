@@ -13,13 +13,16 @@ import PriceLabel from "./priceLabel";
 const styles = {
   card: {
     width: 150,
-    height: 210
+    height: 210    
   },
   media: {
     height: 130,
     width: 100,
     marginTop: "5px",
-    marginLeft: "22px"
+    marginLeft: "22px"    
+  },
+  cardContent: {
+    paddingRight: "10px"
   }
 };
 
@@ -42,7 +45,9 @@ const MyCard = props => {
           image={`https://uploads.codesandbox.io/uploads/user/e8cb9cd4-720b-4761-8a65-c9f657789081/${joia}.jpg`}          
           title="jewel"
         />
-        <CardContent>
+        <CardContent
+          className={classes.cardContent}
+          >
           <Typography gutterBottom variant="headline" component="h2">
             <PriceLabel valor={currencyFormat(valor)} status={status} />
           </Typography>
