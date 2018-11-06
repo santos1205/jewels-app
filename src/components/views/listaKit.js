@@ -92,7 +92,7 @@ class ListaKit extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  kit: state.listaKit.kit
+  kit: state.listaKitReducer.kit
 });
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ actjewelSell, actGetKits, actGetKitById, actGetFirstKit }, dispatch);
