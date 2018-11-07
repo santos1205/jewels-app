@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'http://localhost:3000/api/jewels'
+const BASE_URL = 'https://jewels-api.herokuapp.com/api/jewels'
 
 
 export const actjewelSell = (index) => {  
