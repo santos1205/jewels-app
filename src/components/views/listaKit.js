@@ -75,7 +75,7 @@ class ListaKit extends React.Component {
                 spacing={Number(spacing)}
               >
                 {kit.jewels.map((value, index) => (
-                  <Grid key={index} item onClick={() => actjewelSell(index)}>
+                  <Grid key={index} item onClick={() => actjewelSell(index, kit)}>
                     <Card
                       tipo={value.tipo}
                       valor={value.valor}
