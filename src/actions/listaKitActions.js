@@ -15,14 +15,28 @@ export const actjewelSell = (indexJewel, kit) => {
        },
        ...kit.jewels.slice(indexJewel + 1), // update array state: depois do registro selecionado
      ] 
+  }   
+  // Using Multi Middleware in order to update interface first then update base.
+  return [    
+    {type: "JEWEL_CHANGED", payload: kitUpd},
+    actUpdateKitBase(kitUpd)
+  ]   
+}
+
+const actUpdateKitBase = (kit) => {
+  return dispatch => {
+    axios.put(`${BASE_URL}/${kit._id}`, {...kit})
+      .then(resp => dispatch(actLoadTotals()))
   }  
-  //console.log(kitUpd)
-  axios.put(`${BASE_URL}/${kit._id}`, {...kitUpd})  
-    .then(resp => console.log('retorno: ' + resp.data))
+}
+
+const actLoadTotals = () => {
+  // TODO: AXIOS HERE => loadTotals bkend method
+  let request = { partialJewels: 20, totalJewels: 300, partialSell: 500.50, totalSell: 1550.5 }
   return {
-    type: "JEWEL_CHANGED",
-    payload: kitUpd
-  }  
+    type: 'TOTAL_LOADED',
+    payload: request
+  }
 }
 
 export const actGetKits = () => {
@@ -41,7 +55,7 @@ export const actGetKitById = (id) => {
   }  
 }
 
-export const actGetFirstKit = () => {
+export const actGetFirstKit = () => {  
   const request = axios.get(`${BASE_URL}/firstElem`)  
   return {
     type: 'FIRST_KIT_LOADED',
