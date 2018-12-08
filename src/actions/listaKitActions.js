@@ -17,10 +17,9 @@ export const actjewelSell = (indexJewel, kit) => {
        ...kit.jewels.slice(indexJewel + 1), // update array state: depois do registro selecionado
      ] 
   }   
-  // Load totals
-  //TODO: load totals methods  
-  kitUpd = totalsProcess(kitUpd)
-  console.log(kitUpd)
+  // Load totals  
+  kitUpd = totalsProcess(kitUpd)  // Load totals
+  //console.log(kitUpd)
   // Using Multi Middleware in order to update interface first then update base.
   return [    
     {type: "JEWEL_CHANGED", payload: kitUpd},
