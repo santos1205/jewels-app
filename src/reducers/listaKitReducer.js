@@ -10,11 +10,11 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "JEWEL_CHANGED": 
+    case "JEWEL_CHANGED":     
     return {...state, kit: action.payload};
     case "TOTAL_LOADED": 
     let pload = action.payload    
-    console.log(pload)
+    //console.log(pload)
     return {
       kit:{
         ...state.kit, totalJewels: pload.totalJewels
