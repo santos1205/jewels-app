@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {totalsProcess} from '../businessLayer/listaKit'
 
 const BASE_URL = 'https://jewels-api.herokuapp.com/api/jewels'
 
@@ -16,10 +17,13 @@ export const actjewelSell = (indexJewel, kit) => {
        ...kit.jewels.slice(indexJewel + 1), // update array state: depois do registro selecionado
      ] 
   }   
+  // Load totals
+  //TODO: load totals methods
+  totalsProcess(kitUpd)
   // Using Multi Middleware in order to update interface first then update base.
   return [    
     {type: "JEWEL_CHANGED", payload: kitUpd},
-    actUpdateKitBase(kitUpd)
+    actUpdateKitBase(kitUpd),    
   ]   
 }
 
