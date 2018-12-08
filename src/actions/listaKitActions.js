@@ -3,7 +3,6 @@ import {totalsProcess} from '../businessLayer/listaKit'
 
 const BASE_URL = 'https://jewels-api.herokuapp.com/api/jewels'
 
-
 export const actjewelSell = (indexJewel, kit) => {  
   let jewelUpdate = kit.jewels[indexJewel].isSold == false ? true : false
   let kitUpd = {
