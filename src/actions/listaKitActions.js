@@ -18,7 +18,7 @@ export const actjewelSell = (indexJewel, kit) => {
   }   
   // Load totals  
   kitUpd = totalsProcess(kitUpd)  // Load totals
-  console.log(kitUpd)
+  //console.log(kitUpd)
   // Using Multi Middleware in order to update interface first then update base.
   return [    
     {type: "JEWEL_CHANGED", payload: kitUpd},
