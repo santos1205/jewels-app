@@ -1,24 +1,13 @@
 import axios from 'axios'
-import {totalsProcess} from '../businessLayer/listaKit'
+import {totalsProcess, updateJewel} from '../businessLayer/listaKit'
 
 const BASE_URL = 'https://jewels-api.herokuapp.com/api/jewels'
 
 export const actjewelSell = (indexJewel, kit) => {  
   let jewelUpdate = kit.jewels[indexJewel].isSold == false ? true : false
-  let kitUpd = {
-     ...kit, jewels: 
-     [
-       ...kit.jewels.slice(0, indexJewel),  // update array state: antes do registro selecionado
-       {
-         ...kit.jewels[indexJewel],
-         isSold: jewelUpdate
-       },
-       ...kit.jewels.slice(indexJewel + 1), // update array state: depois do registro selecionado
-     ] 
-  }   
+  let kitUpd = updateJewel(kit, indexJewel)  
   // Load totals  
-  kitUpd = totalsProcess(kitUpd)  // Load totals
-  //console.log(kitUpd)
+  kitUpd = totalsProcess(kitUpd)
   // Using Multi Middleware in order to update interface first then update base.
   return [    
     {type: "JEWEL_CHANGED", payload: kitUpd},
@@ -26,11 +15,11 @@ export const actjewelSell = (indexJewel, kit) => {
   ]   
 }
 
-const actUpdateKitBase = (kit) => {
-  return dispatch => {
-    axios.put(`${BASE_URL}/${kit._id}`, {...kit})
-      .then(resp => dispatch(actGetFirstKit()))
-  }  
+export const actFilterJewelsByType = () => {
+    
+  return {
+    type: "JEWEL_FILTERED"    
+  }
 }
 
 export const actGetKits = () => {
@@ -54,5 +43,14 @@ export const actGetFirstKit = () => {
   return {
     type: 'FIRST_KIT_LOADED',
     payload: request
+  }  
+}
+
+// Private Actions ###########################################################
+
+const actUpdateKitBase = (kit) => {
+  return dispatch => {
+    axios.put(`${BASE_URL}/${kit._id}`, {...kit})
+      .then(resp => dispatch(actGetFirstKit()))
   }  
 }

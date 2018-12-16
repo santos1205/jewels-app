@@ -13,6 +13,9 @@ import Paper from "@material-ui/core/Paper";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import MenuList from "@material-ui/core/MenuList";
 import MenuItem from "@material-ui/core/MenuItem";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actFilterJewelsByType } from "../../actions/listaKitActions";
 import compose from 'recompose/compose';
 
 const styles = theme => ({
@@ -105,9 +108,9 @@ class MyAppBar extends React.Component {
                   <Paper>
                     <ClickAwayListener onClickAway={this.handleClose}>
                       <MenuList>
-                        <MenuItem onClick={this.handleClose}>Brincos</MenuItem>
-                        <MenuItem onClick={this.handleClose}>Colares</MenuItem>
-                        <MenuItem onClick={this.handleClose}>Anéis</MenuItem>
+                        <MenuItem onClick={() => actFilterJewelsByType()}>Brincos</MenuItem>
+                        <MenuItem onClick={() => actFilterJewelsByType()}>Colares</MenuItem>
+                        <MenuItem onClick={() => actFilterJewelsByType()}>Anéis</MenuItem>
                       </MenuList>
                     </ClickAwayListener>
                   </Paper>
@@ -135,6 +138,8 @@ MyAppBar.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(MyAppBar);
 
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ actFilterJewelsByType }, dispatch);
 
+export default compose(withStyles(styles), connect(null, mapDispatchToProps))(MyAppBar);

@@ -19,3 +19,19 @@ export const totalsProcess = (kit) => {
     kit.partialSell = partialSell
     return kit
 }
+
+export const updateJewel = (kit, index) => {    
+    let jewelUpdate = kit.jewels[index].isSold == false ? true : false
+    kit = {
+     ...kit, jewels: 
+     [
+       ...kit.jewels.slice(0, index),  // update array state: antes do registro selecionado
+       {
+         ...kit.jewels[index],
+         isSold: jewelUpdate
+       },
+       ...kit.jewels.slice(index + 1), // update array state: depois do registro selecionado
+     ] 
+  }   
+    return kit
+}
