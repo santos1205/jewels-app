@@ -65,10 +65,11 @@ class MyAppBar extends React.Component {
       classes, 
       titulo, 
       color,
+      idKit,
       client,
       partialJewels,
       totalJewels,
-      partialSell,
+      partialSell,      
       totalSell
     } = this.props;
     
@@ -108,9 +109,9 @@ class MyAppBar extends React.Component {
                   <Paper>
                     <ClickAwayListener onClickAway={this.handleClose}>
                       <MenuList>
-                        <MenuItem onClick={() => actFilterJewelsByType()}>Brincos</MenuItem>
-                        <MenuItem onClick={() => actFilterJewelsByType()}>Colares</MenuItem>
-                        <MenuItem onClick={() => actFilterJewelsByType()}>Anéis</MenuItem>
+                        <MenuItem onClick={() => actGetKitById(idKit)}>Brincos</MenuItem>
+                        <MenuItem onClick={() => actFilterJewelsByType(idKit, 'colar')}>Colares</MenuItem>
+                        <MenuItem onClick={() => actFilterJewelsByType(idKit, 'anel')}>Anéis</MenuItem>
                       </MenuList>
                     </ClickAwayListener>
                   </Paper>

@@ -44,9 +44,12 @@ class ListaKit extends React.Component {
     super( props );
     this.state = {
       spacing: "16"
-    };
+    };    
   }
 
+  handleTestMethod(){
+    alert(this)    
+  }
 
   componentWillMount() {
     //this.props.actFilterJewelsByType('5c02ee620bc2f60016a33ca2', 'pulseira')
@@ -59,12 +62,14 @@ class ListaKit extends React.Component {
     return (
       <React.Fragment>
         <MyAppBar titulo="Kit" 
+          idKit={kit._id}
           client={kit.client}
           partialJewels={kit.partialJewels}
           totalJewels={kit.totalJewels}
           partialSell={kit.partialSell}
           totalSell={kit.totalSell}
-          color='secondary' />
+          color='secondary'          
+          />
         <CssBaseline />
         <main className={classes.layout}>
           <div className={classes.heroContent}>

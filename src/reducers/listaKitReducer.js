@@ -18,8 +18,7 @@ export default (state = INITIAL_STATE, action) => {
       return {...state, kit: action.payload.data};
     case "FIRST_KIT_LOADED":      
       return {...state, kit: action.payload.data.value};      
-    case "JEWELS_FILTERED":    
-    console.log('d: ' + action.payload)  
+    case "JEWELS_FILTERED":        
     return {...state, kit: action.payload};
     default:
       return state;
