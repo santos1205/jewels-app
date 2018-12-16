@@ -35,3 +35,13 @@ export const updateJewel = (kit, index) => {
   }   
     return kit
 }
+
+export const jewelsFilterByType = (kit, type) => {        
+    let jewels = []
+    kit.jewels.map(function(value){     
+        if(value.tipo == type)   
+            jewels.push(value)
+    })      
+    kit.jewels = jewels
+    return kit
+}

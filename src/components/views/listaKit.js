@@ -6,7 +6,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { actjewelSell, actGetKits, actGetKitById, actGetFirstKit } from "../../actions/listaKitActions";
+import { actjewelSell, actGetKits, actGetKitById, actGetFirstKit, actFilterJewelsByType } from "../../actions/listaKitActions";
 import compose from 'recompose/compose';
 
 const styles = theme => ({
@@ -49,7 +49,8 @@ class ListaKit extends React.Component {
 
 
   componentWillMount() {
-    this.props.actGetFirstKit()
+    //this.props.actFilterJewelsByType('5c02ee620bc2f60016a33ca2', 'pulseira')
+    this.props.actGetKitById('5c02ee620bc2f60016a33ca2')
   }
 
   render() {
@@ -95,6 +96,6 @@ const mapStateToProps = state => ({
   kit: state.listaKitReducer.kit
 });
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ actjewelSell, actGetKits, actGetKitById, actGetFirstKit }, dispatch);
+  bindActionCreators({ actjewelSell, actGetKits, actGetKitById, actGetFirstKit, actFilterJewelsByType }, dispatch);
 
 export default compose(withStyles(styles), connect(mapStateToProps, mapDispatchToProps))(ListaKit);
