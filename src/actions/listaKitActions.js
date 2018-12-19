@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {totalsProcess, updateJewel, jewelsFilterByType} from '../businessLayer/bl_listaKit'
+import {totalsProcess, updateJewel} from '../businessLayer/bl_listaKit'
 
 const BASE_URL = 'https://jewels-api.herokuapp.com/api/jewels'
 
@@ -15,12 +15,10 @@ export const actjewelSell = (indexJewel, kit) => {
   ]   
 }
 
-export const actFilterJewelsByType = (id, typeJewel) => {    
-  return dispatch => {
-    axios.get(`${BASE_URL}/${id}`)
-    .then(resp => dispatch({      
-      type: 'JEWELS_FILTERED', payload: jewelsFilterByType(resp.data, typeJewel) }))
-    }  
+export const actFilterJewelsByType = (typeJewel) => {    
+  return {    
+      type: 'JEWELS_FILTERED', payload: typeJewel    
+  }
 }
 
 export const actGetKits = () => {

@@ -64,8 +64,7 @@ class MyAppBar extends React.Component {
     const { 
       classes, 
       titulo, 
-      color,
-      idKit,
+      color,      
       client,
       partialJewels,
       totalJewels,
@@ -110,11 +109,11 @@ class MyAppBar extends React.Component {
                   <Paper>
                     <ClickAwayListener onClickAway={this.handleClose}>
                       <MenuList>
-                        <MenuItem onClick={() => actFilterJewelsByType(idKit, 'anel')}>Anéis</MenuItem>
-                        <MenuItem onClick={() => actFilterJewelsByType(idKit, 'brinco')}>Brincos</MenuItem>
-                        <MenuItem onClick={() => actFilterJewelsByType(idKit, 'colar')}>Colares</MenuItem>
-                        <MenuItem onClick={() => actFilterJewelsByType(idKit, 'pulseira')}>Pulseiras</MenuItem>
-                        <MenuItem onClick={() => actFilterJewelsByType(idKit, '')}>Todos</MenuItem>
+                        <MenuItem onClick={() => actFilterJewelsByType('anel')}>Anéis</MenuItem>
+                        <MenuItem onClick={() => actFilterJewelsByType('brinco')}>Brincos</MenuItem>
+                        <MenuItem onClick={() => actFilterJewelsByType('colar')}>Colares</MenuItem>
+                        <MenuItem onClick={() => actFilterJewelsByType('pulseira')}>Pulseiras</MenuItem>
+                        <MenuItem onClick={() => actFilterJewelsByType('')}>Todos</MenuItem>
                       </MenuList>
                     </ClickAwayListener>
                   </Paper>

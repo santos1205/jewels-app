@@ -2,6 +2,7 @@ const INITIAL_STATE = {
   kit: {
     _id: "",
     cod: "",
+    filter: "",
     jewels: [{
       _id: ""
     }]      
@@ -18,8 +19,12 @@ export default (state = INITIAL_STATE, action) => {
       return {...state, kit: action.payload.data};
     case "FIRST_KIT_LOADED":      
       return {...state, kit: action.payload.data.value};      
-    case "JEWELS_FILTERED":        
-    return {...state, kit: action.payload};
+    case "JEWELS_FILTERED":            
+    return {
+      kit: {
+        ...state.kit, filter: action.payload
+      }
+    };
     default:
       return state;
   }

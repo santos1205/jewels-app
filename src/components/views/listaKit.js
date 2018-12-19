@@ -61,8 +61,7 @@ class ListaKit extends React.Component {
     const { spacing } = this.state;    
     return (
       <React.Fragment>
-        <MyAppBar titulo="Kit" 
-          idKit={kit._id}
+        <MyAppBar titulo="Kit"           
           client={kit.client}
           partialJewels={kit.partialJewels}
           totalJewels={kit.totalJewels}
@@ -80,15 +79,43 @@ class ListaKit extends React.Component {
                 justify="center"
                 spacing={Number(spacing)}
               >
-                {kit.jewels.map((value, index) => (
-                  <Grid key={index} item onClick={() => actjewelSell(index, kit)}>
-                    <Card
-                      tipo={value.tipo}
-                      valor={value.valor}
-                      isSold={value.isSold}
-                    />
-                  </Grid>
-                ))}
+                {kit.jewels.map((value, index) =>
+                {
+                  if(kit.filter == value.tipo) {
+                    return (
+                      <Grid key={index} item onClick={() => actjewelSell(index, kit)}>
+                      <Card
+                        tipo={value.tipo}
+                        valor={value.valor}
+                        isSold={value.isSold}
+                      />
+                    </Grid>
+                    )                    
+                  }  
+                  else if(kit.filter == '')
+                    return (
+                      <Grid key={index} item onClick={() => actjewelSell(index, kit)}>
+                      <Card
+                        tipo={value.tipo}
+                        valor={value.valor}
+                        isSold={value.isSold}
+                      />
+                    </Grid>
+                    )
+                }               
+                
+                // (                  
+                //     <Grid key={index} item onClick={() => actjewelSell(index, kit)}>
+                //     <Card
+                //       tipo={value.tipo}
+                //       valor={value.valor}
+                //       isSold={value.isSold}
+                //     />
+                //   </Grid>
+                // )
+                //)
+                
+                )}
               </Grid>
             </Grid>
           </div>
