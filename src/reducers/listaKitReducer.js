@@ -3,9 +3,7 @@ const INITIAL_STATE = {
     _id: "",
     cod: "",
     filter: "",
-    jewels: [{
-      _id: ""
-    }]      
+    jewels: []      
   }    
 };
 

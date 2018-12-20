@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import MyAppBar from '../layout/myAppBar'
 import CssBaseline from "@material-ui/core/CssBaseline";
 import withStyles from "@material-ui/core/styles/withStyles";
+import LinearProgress from '@material-ui/core/LinearProgress';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actjewelSell, actGetKits, actGetKitById, actGetFirstKit, actFilterJewelsByType } from "../../actions/listaKitActions";
@@ -14,7 +15,7 @@ const styles = theme => ({
     body: {
       backgroundColor: "#DEF1FA"
     }
-  },
+  },  
   paper: {
     height: 140,
     width: 100
@@ -38,23 +39,20 @@ const styles = theme => ({
 });
 
 
+
 class ListaKit extends React.Component {
 
   constructor( props ){
     super( props );
     this.state = {
-      spacing: "16"
+      spacing: "16"     
     };    
   }
 
-  handleTestMethod(){
-    alert(this)    
+  componentWillMount() {    
+    //this.props.actGetKitById('5c02ee620bc2f60016a33ca2')
   }
 
-  componentWillMount() {
-    //this.props.actFilterJewelsByType('5c02ee620bc2f60016a33ca2', 'pulseira')
-    this.props.actGetKitById('5c02ee620bc2f60016a33ca2')
-  }
 
   render() {
     const { classes, kit, actjewelSell } = this.props;
@@ -69,6 +67,11 @@ class ListaKit extends React.Component {
           totalSell={kit.totalSell}
           color='secondary'          
           />
+          <div className={classes.root}>
+        <LinearProgress variant="determinate" value={this.state.completed} />
+        <br />
+        <LinearProgress color="secondary" variant="determinate" value={this.state.completed} />
+      </div>
         <CssBaseline />
         <main className={classes.layout}>
           <div className={classes.heroContent}>
@@ -79,6 +82,7 @@ class ListaKit extends React.Component {
                 justify="center"
                 spacing={Number(spacing)}
               >
+              <h3>Carregando...</h3>
                 {kit.jewels.map((value, index) =>
                 {
                   if(kit.filter == value.tipo) {
@@ -124,6 +128,7 @@ class ListaKit extends React.Component {
     );
   }
 }
+
 const mapStateToProps = state => ({
   kit: state.listaKitReducer.kit
 });
