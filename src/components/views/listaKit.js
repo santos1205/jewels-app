@@ -20,6 +20,9 @@ const styles = theme => ({
     height: 140,
     width: 100
   },
+  labelCenter: {
+    textAlign: "center"
+  },
   layout: {
     width: "auto",
     marginTop: "20px",
@@ -50,14 +53,35 @@ class ListaKit extends React.Component {
   }
 
   componentWillMount() {    
-    //this.props.actGetKitById('5c02ee620bc2f60016a33ca2')
+    this.props.actGetKitById('5c02ee620bc2f60016a33ca2')
   }
 
 
   render() {
     const { classes, kit, actjewelSell } = this.props;
-    const { spacing } = this.state;    
-    return (
+    const { spacing } = this.state;   
+    if(kit.jewels.length == 0) 
+      return(
+        <React.Fragment>
+          <MyAppBar titulo="Kit"           
+          client={kit.client}
+          partialJewels={kit.partialJewels}
+          totalJewels={kit.totalJewels}
+          partialSell={kit.partialSell}
+          totalSell={kit.totalSell}
+          color='secondary'          
+          />
+          <main className={classes.layout}>
+          <br></br><br></br>
+          <div className={classes.heroContent}>
+          
+        <h2 className={classes.labelCenter}>Processando...</h2>
+        </div>
+        </main>
+        </React.Fragment>
+      )      
+    else
+      return (
       <React.Fragment>
         <MyAppBar titulo="Kit"           
           client={kit.client}
@@ -66,12 +90,7 @@ class ListaKit extends React.Component {
           partialSell={kit.partialSell}
           totalSell={kit.totalSell}
           color='secondary'          
-          />
-          <div className={classes.root}>
-        <LinearProgress variant="determinate" value={this.state.completed} />
-        <br />
-        <LinearProgress color="secondary" variant="determinate" value={this.state.completed} />
-      </div>
+          />        
         <CssBaseline />
         <main className={classes.layout}>
           <div className={classes.heroContent}>
@@ -81,8 +100,7 @@ class ListaKit extends React.Component {
                 className={classes.demo}
                 justify="center"
                 spacing={Number(spacing)}
-              >
-              <h3>Carregando...</h3>
+              >                
                 {kit.jewels.map((value, index) =>
                 {
                   if(kit.filter == value.tipo) {
@@ -106,19 +124,7 @@ class ListaKit extends React.Component {
                       />
                     </Grid>
                     )
-                }               
-                
-                // (                  
-                //     <Grid key={index} item onClick={() => actjewelSell(index, kit)}>
-                //     <Card
-                //       tipo={value.tipo}
-                //       valor={value.valor}
-                //       isSold={value.isSold}
-                //     />
-                //   </Grid>
-                // )
-                //)
-                
+                }                               
                 )}
               </Grid>
             </Grid>
