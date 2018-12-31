@@ -17,9 +17,9 @@ const styles = {
   },
   media: {
     height: 130,
-    width: 100,
+    width: 150,
     marginTop: "5px",
-    marginLeft: "22px"    
+    marginLeft: "0px"    
   },
   cardContent: {
     paddingRight: "10px"
