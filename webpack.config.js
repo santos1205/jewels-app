@@ -36,10 +36,10 @@ module.exports = {
                 plugins:['transform-object-rest-spread'],
                 plugins: ['transform-class-properties']
             }
-        }, {
+        },{
             test: /\.css$/,
-            loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
-        }, {
+            loader: 'style!css-loader' 
+        },{
             test: /\.woff|.woff2|.ttf|.eot|.svg|.png|.jpg*.*$/,
             loader: 'file'
         }]
